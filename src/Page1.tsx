@@ -20,9 +20,16 @@ export const Page1 = () => {
     return total2;
   }
 
-  const [todos, setTodos] = useState<any>([]);
+
+  type TodoType = {
+    userId: number;
+    id: number;
+    title: string
+    completed: boolean;
+  }
+  const [todos, setTodos] = useState<Array<TodoType>>([]);
   const onclickAction3 = () => {
-    axios.get("https://jsonplaceholder.typicode.com/todos").then((res) => {
+    axios.get<Array<TodoType>>("https://jsonplaceholder.typicode.com/todos").then((res) => {
       console.log(res);
       setTodos(res.data);
     })
@@ -37,7 +44,7 @@ export const Page1 = () => {
       <br />
       <button onClick={onclickAction3}>データ取得</button>
       {todos.map((todo) => (
-        <Todo title={todo.title} userid={todo.userid} />
+        <Todo key={todo.id} title={todo.title} userId={todo.userId} completed={todo.completed} />
       ))}
     </div>
   )
