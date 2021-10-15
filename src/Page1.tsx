@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useState } from "react";
 
 export const Page1 = () => {
 
@@ -17,6 +18,8 @@ export const Page1 = () => {
     total2 = num * 1.1;
     return total2;
   }
+
+  const [todos, setTodos] = useState([]);
   const onclickAction3 = () => {
     axios.get("https://jsonplaceholder.typicode.com/todos").then((res) => {
       console.log(res);
