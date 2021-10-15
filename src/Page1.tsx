@@ -19,7 +19,7 @@ export const Page1 = () => {
     return total2;
   }
 
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<any>([]);
   const onclickAction3 = () => {
     axios.get("https://jsonplaceholder.typicode.com/todos").then((res) => {
       console.log(res);
