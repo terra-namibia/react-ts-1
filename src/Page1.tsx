@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const Page1 = () => {
 
   const onclickAction1 = () => calcTotal(1000);
@@ -15,6 +17,11 @@ export const Page1 = () => {
     total2 = num * 1.1;
     return total2;
   }
+  const onclickAction3 = () => {
+    axios.get("https://jsonplaceholder.typicode.com/todos").then((res) => {
+      console.log(res);
+    })
+  }
 
   return (
     <div>
@@ -22,6 +29,8 @@ export const Page1 = () => {
       <button onClick={onclickAction1}>ボタン1実行</button>
       <br />
       <button onClick={onclickAction2}>ボタン2実行</button>
+      <br />
+      <button onClick={onclickAction3}>データ取得</button>
     </div>
   )
 }
