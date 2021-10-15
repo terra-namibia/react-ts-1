@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Todo } from "./Todo";
 
 export const Page1 = () => {
 
@@ -23,6 +24,7 @@ export const Page1 = () => {
   const onclickAction3 = () => {
     axios.get("https://jsonplaceholder.typicode.com/todos").then((res) => {
       console.log(res);
+      setTodos(res.data);
     })
   }
 
@@ -34,6 +36,9 @@ export const Page1 = () => {
       <button onClick={onclickAction2}>ボタン2実行</button>
       <br />
       <button onClick={onclickAction3}>データ取得</button>
+      {todos.map((todo) => (
+        <Todo title={todo.title} userid={todo.userid} />
+      ))}
     </div>
   )
 }
