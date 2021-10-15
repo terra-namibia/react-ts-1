@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Todo } from "./Todo";
+import { TodoType } from "./types/todo";
 
 export const Page1 = () => {
 
@@ -20,13 +21,6 @@ export const Page1 = () => {
     return total2;
   }
 
-
-  type TodoType = {
-    userId: number;
-    id: number;
-    title: string
-    completed: boolean;
-  }
   const [todos, setTodos] = useState<Array<TodoType>>([]);
   const onclickAction3 = () => {
     axios.get<Array<TodoType>>("https://jsonplaceholder.typicode.com/todos").then((res) => {
