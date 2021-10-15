@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Todo } from "./Todo";
 import { TodoType } from "./types/todo";
+import { Text } from "./Text";
 
 export const Page1 = () => {
 
@@ -35,6 +36,8 @@ export const Page1 = () => {
       <button onClick={onclickAction1}>ボタン1実行</button>
       <br />
       <button onClick={onclickAction2}>ボタン2実行</button>
+      <br />
+      <Text color="green" fontSize="18px" />
       <br />
       <button onClick={onclickAction3}>データ取得</button>
       {todos.map((todo) => (
