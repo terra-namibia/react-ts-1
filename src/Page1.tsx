@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Todo } from "./Todo";
 import { TodoType } from "./types/todo";
 import { Text } from "./Text";
+import { UserProfile } from "./UserProfile";
+import { User } from "./types/user";
 
 export const Page1 = () => {
 
@@ -30,12 +32,18 @@ export const Page1 = () => {
     })
   }
 
+  const user: User = {
+    name: "apple",
+    hobbies: ["aa", "bb"],
+  }
+
   return (
     <div>
       <p>タイトル</p>
       <button onClick={onclickAction1}>ボタン1実行</button>
       <br />
       <button onClick={onclickAction2}>ボタン2実行</button>
+      <UserProfile user={user}/>
       <br />
       <Text color="green" fontSize="18px" />
       <br />
