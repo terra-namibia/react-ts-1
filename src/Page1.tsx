@@ -5,6 +5,8 @@ import { TodoType } from "./types/todo";
 import { Text } from "./Text";
 import { UserProfile } from "./UserProfile";
 import { User } from "./types/user";
+import { UserCard } from "./components/UserCard";
+// import { UserProfile2 } from "./types/userProfile2";
 
 export const Page1 = () => {
 
@@ -36,6 +38,12 @@ export const Page1 = () => {
     name: "apple",
     hobbies: ["aa", "bb"],
   }
+  const user2 = {
+    id: 1,
+    name: "apple",
+    email: "abc@example.com",
+    address: "Shibuya, Tokyo, Japan",
+  }
 
   return (
     <div>
@@ -44,6 +52,8 @@ export const Page1 = () => {
       <br />
       <button onClick={onclickAction2}>ボタン2実行</button>
       <UserProfile user={user}/>
+      <br />
+      <UserCard user={user2}/>
       <br />
       <Text color="green" fontSize="18px" />
       <br />
