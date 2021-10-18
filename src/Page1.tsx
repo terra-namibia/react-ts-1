@@ -27,7 +27,7 @@ export const Page1 = () => {
   }
 
   const [todos, setTodos] = useState<Array<TodoType>>([]);
-  const onclickAction3 = () => {
+  const onclickFetchTodos = () => {
     axios.get<Array<TodoType>>("https://jsonplaceholder.typicode.com/todos").then((res) => {
       console.log(res);
       setTodos(res.data);
@@ -57,7 +57,7 @@ export const Page1 = () => {
       <br />
       <Text color="green" fontSize="18px" />
       <br />
-      <button onClick={onclickAction3}>データ取得</button>
+      <button onClick={onclickFetchTodos}>todosデータ取得</button>
       {todos.map((todo) => (
         <Todo key={todo.id} title={todo.title} userId={todo.userId} completed={todo.completed} />
       ))}
