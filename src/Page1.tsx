@@ -52,7 +52,9 @@ export const Page1 = () => {
         address: `${user.address.city}${user.address.suite}${user.address.street}`
       }));
       setUserProfiles(data);
-    });
+    })
+    .catch(() => setError(true))
+    .finally(() => setLoading(false));
   };
 
   const user: User = {
@@ -77,9 +79,22 @@ export const Page1 = () => {
       <UserCard user={user2}/>
       <br />
       <button onClick={onclickFetchUsers}>usersデータ取得</button>
-      {userProfiles.map((user) => (
-        <UserCard key={user.id} user={user} />
-      ))}
+      {error ?
+        (
+          <p style={{ color: "red" }}>Failed fetching data</p>
+        ) :
+        loading ?
+          (
+            <p>Loading</p>
+          ) :
+          (
+            <>
+              {userProfiles.map((user) => (
+                <UserCard key={user.id} user={user} />
+              ))}
+            </>
+          )
+      }
       <br />
       <Text color="green" fontSize="18px" />
       <br />
