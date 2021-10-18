@@ -36,7 +36,13 @@ export const Page1 = () => {
   }
 
   const [userProfiles, setUserProfiles] = useState<Array<UserProfile2>>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
   const onclickFetchUsers = () => {
+    setLoading(true);
+    setError(false);
+
     axios.get<Array<User2>>("https://jsonplaceholder.typicode.com/users").then((res) => {
       console.log(res);
       const data = res.data.map((user) => ({
@@ -46,8 +52,8 @@ export const Page1 = () => {
         address: `${user.address.city}${user.address.suite}${user.address.street}`
       }));
       setUserProfiles(data);
-    })
-  }
+    });
+  };
 
   const user: User = {
     name: "apple",
