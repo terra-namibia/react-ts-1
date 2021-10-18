@@ -7,6 +7,7 @@ import { UserProfile } from "./UserProfile";
 import { User } from "./types/user";
 import { UserCard } from "./components/UserCard";
 import { UserProfile2 } from "./types/userProfile2";
+import { User2 } from "./types/user2";
 
 export const Page1 = () => {
 
@@ -34,6 +35,20 @@ export const Page1 = () => {
     })
   }
 
+  const [userProfiles, setUserProfiles] = useState<Array<UserProfile2>>([]);
+  const onclickFetchUsers = () => {
+    axios.get<Array<User2>>("https://jsonplaceholder.typicode.com/users").then((res) => {
+      console.log(res);
+      const data = res.data.map((user) => ({
+        id: user.id,
+        name: `${user.name}(${user.username})`,
+        email: user.email,
+        address: `${user.address.city}${user.address.suite}${user.address.street}`
+      }));
+      setUserProfiles(data);
+    })
+  }
+
   const user: User = {
     name: "apple",
     hobbies: ["aa", "bb"],
@@ -54,6 +69,11 @@ export const Page1 = () => {
       <UserProfile user={user}/>
       <br />
       <UserCard user={user2}/>
+      <br />
+      <button onClick={onclickFetchUsers}>usersデータ取得</button>
+      {userProfiles.map((user) => (
+        <UserCard key={user.id} user={user} />
+      ))}
       <br />
       <Text color="green" fontSize="18px" />
       <br />
