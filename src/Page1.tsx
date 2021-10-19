@@ -57,9 +57,9 @@ export const Page1 = () => {
     .finally(() => setLoading(false));
   };
 
-  const user: User = {
+  const user1: User = {
     name: "apple",
-    hobbies: ["aa", "bb"],
+    hobbies: ["sports", "travel"],
   }
   const user2: UserProfile2 = {
     id: 1,
@@ -75,7 +75,7 @@ export const Page1 = () => {
       <button onClick={onclickAction1}>ボタン1実行</button>
       <br />
       <button onClick={onclickAction2}>ボタン2実行</button>
-      <UserProfile user={user}/>
+      <UserProfile user={user1}/>
       <br />
       <UserCard user={user2}/>
       <br />
