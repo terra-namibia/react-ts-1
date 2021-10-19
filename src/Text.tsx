@@ -7,6 +7,6 @@ type Props = {
 export const Text: VFC<Props> = (props) => {
   const { color, fontSize } = props;
   return (
-    <p style={{ color, fontSize }} >テキスト</p>
+    <p style={{ color, fontSize }} >タイトル</p>
   )
 };

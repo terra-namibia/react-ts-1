@@ -70,7 +70,8 @@ export const Page1 = () => {
 
   return (
     <div>
-      <p>タイトル</p>
+      <Text color="green" fontSize="18px" />
+      <br />
       <button onClick={onclickAction1}>ボタン1実行</button>
       <br />
       <button onClick={onclickAction2}>ボタン2実行</button>
@@ -95,8 +96,6 @@ export const Page1 = () => {
             </>
           )
       }
-      <br />
-      <Text color="green" fontSize="18px" />
       <br />
       <button onClick={onclickFetchTodos}>todosデータ取得</button>
       {todos.map((todo) => (
