@@ -37,7 +37,7 @@ export const Page1 = () => {
   };
 
   const { getUsers, userProfiles, loading, error } = useAllUsers();
-  const onclickFetchUsers = () => getUsers;
+  const onclickFetchUsers = () => getUsers();
 
   const user1: User = {
     name: "apple",
